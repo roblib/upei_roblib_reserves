@@ -5,6 +5,51 @@
  * Implementation of Roblib reserves for wrapping evergreen bookbags.
  */
 
+/**
+ * Implements hook_menu().
+ */
+function upei_roblib_reserves_menu() {
+
+  $items['admin/config/upei_roblib_reserves'] = array(
+    'title' => 'Roblib Reserves',
+    'description' => 'Configure Roblib Reserves settings.',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/upei_roblib_reserves/configure'] = array(
+    'title' => 'Roblib reserves configuration',
+    'description' => 'Configure Roblib Reserves settings.',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('upei_roblib_reserves_config_form'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * A form for managing the modules configuration.
+ *
+ * @param array $form
+ *   A Drupal form array
+ * @param array $form_state
+ *   A Drupal formstate array
+ *
+ * @return array
+ *   A Drupal form
+ */
+function upei_roblib_reserves_config_form($form, &$form_state) {
+  $form['upei_roblib_reserves_book_bag_base_url'] = array(
+    '#type' => 'textarea',
+    '#title' => t('The base url for evergreen bookbags'),
+    '#default_value' => variable_get('upei_roblib_reserves_book_bag_base_url',
+      'http://islandpines.roblib.upei.ca/opac/extras/feed/bookbag/atom-full/'),
+    '#description' => t('The base url to the evergreen bookbag atom feed, ie.
+     http://islandpines.roblib.upei.ca/opac/extras/feed/bookbag/atom-full/'),
+    '#required' => TRUE,
+  );
+  return system_settings_form($form);
+}
 
 /**
  * Implements hook_permission().
