@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Implementation of Roblib search for searching several targets.
+ * Implementation of Roblib reserves for wrapping evergreen bookbags.
  */
 
 
@@ -18,7 +18,9 @@ function upei_roblib_reserves_permission() {
   );
 }
 
-
+/**
+ * Implements hook_block_info().
+ */
 function upei_roblib_reserves_block_info() {
 
   $blocks['upei_roblib_reserves_view'] = array(
@@ -28,6 +30,9 @@ function upei_roblib_reserves_block_info() {
   return $blocks;
 }
 
+/**
+ * Implements hook_block_view().
+ */
 function upei_roblib_reserves_block_view($delta = '') {
   switch ($delta) {
     case 'upei_roblib_reserves_view':

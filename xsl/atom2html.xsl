@@ -16,7 +16,11 @@
     
 <xsl:template match="atom:entry">
     <xsl:for-each select=".">
-        <div class="atom-title"><xsl:value-of select="atom:title"/></div>
+         
+           
+        <div class="atom-title"><a>
+            <xsl:attribute name='href'><xsl:value-of select="atom:link[@rel='opac']/@href"/></xsl:attribute>
+        <xsl:value-of select="atom:title"/></a></div>
         <div class="atom-author"><ul>
            <xsl:for-each select="atom:author"> 
                <li><xsl:value-of select="."/></li>
