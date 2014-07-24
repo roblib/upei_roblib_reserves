@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Implementation of Roblib search for searching several targets.
+ */
+
+
+/**
+ * Implements hook_permission().
+ */
+function upei_roblib_reserves_permission() {
+  return array(
+    'view roblib reserves' => array(
+      'title' => t('View roblib reserves block'),
+      'description' => t('view the roblib reserves block'),
+    ),
+  );
+}
+
+
+function upei_roblib_reserves_block_info() {
+
+  $blocks['upei_roblib_reserves_view'] = array(
+    'info' => t('Roblib Reserves block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+function upei_roblib_reserves_block_view($delta = '') {
+  switch ($delta) {
+    case 'upei_roblib_reserves_view':
+      $block['subject'] = t('Robertson Library Reserves');
+      $block['content'] = theme('upei_roblib_reserves', array('view' => NULL));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function upei_roblib_reserves_theme() {
+  $path = drupal_get_path('module', 'upei_roblib_reserves');
+  $file = 'theme.inc';
+
+  return array(
+    'upei_roblib_reserves' => array(
+      'path' => $path . '/theme',
+      'file' => $file,
+      'template' => 'upei-roblib-reserves',
+      'variables' => array('view' => NULL),
+    )
+  );
+}
+

@@ -1,0 +1,7 @@
+name = Roblib Reserves
+configure = admin/upei_roblib_reserves/configure
+description = A module to consume a bookbag from evergreen and display the results in Drupal
+package = Roblib
+version = 7.x-dev
+core = 7.x
+stylesheets[all][] = css/upei_roblib_reserves.base.css
