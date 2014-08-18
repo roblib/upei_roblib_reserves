@@ -31,6 +31,7 @@
         <div class="atom-available">Loan Period: <xsl:value-of select="*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='holdings']/*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='volumes']/*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='volume']/*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='copies']/*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='copy']/*[namespace-uri()='http://open-ils.org/spec/holdings/v1' and local-name()='location']"/>
         </div>
         </div>
+        <br />
     </xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>
