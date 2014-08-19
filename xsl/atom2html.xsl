@@ -7,11 +7,9 @@
     <xsl:output encoding="utf-8" indent="yes" method="xml"/>
     <xsl:variable name="opac_link" select="/atom:feed/atom:entry/atom:link[@rel='opac']" />
     <xsl:template match="/">
-        <html xmlns="http://www.w3.org/1999/xhtml">
-            <body>
-                <xsl:apply-templates select="atom:feed/atom:entry"/>
-            </body>
-        </html>
+        <div class="upei-roblib-reserves">
+            <xsl:apply-templates select="atom:feed/atom:entry"/>
+        </div>
     </xsl:template>
     
 <xsl:template match="atom:entry">

@@ -9,8 +9,9 @@
  */
 function upei_roblib_reserves_preprocess_upei_roblib_reserves(&$variables) {
   $node = menu_get_object();
-  $variables['atom_to_html'] = "No Reserves Found";
-  if ($node && $node->nid && $node->type == 'course_reserve') {
+  $variables['atom_to_html'] = "";
+  if ($node && $node->nid && $node->type == 'course_reserve' &&
+  !empty($node->field_bookbag_id['und'][0]['value'])) {
     $book_bag_id = $node->field_bookbag_id['und'][0]['value'];
     $book_bag_base_url = variable_get('upei_roblib_reserves_book_bag_base_url', 'http://islandpines.roblib.upei.ca/opac/extras/feed/bookbag/atom-full/');
     $atom = drupal_http_request($book_bag_base_url . $book_bag_id);
