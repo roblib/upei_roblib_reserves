@@ -26,7 +26,11 @@
                         <xsl:value-of select="atom:title"/>
                     </a>
                 </div>
-                <div class="atom-author">
+                <div class="atom-publication-date">
+                    Publication date:
+                    <xsl:value-of select="atom:published"/>
+                </div>
+                <div class="atom-author">Authors:
                     <ul class="atom-list">
                         <xsl:for-each select="atom:author/atom:name">
                             <li class="atom-list-item">
@@ -35,16 +39,17 @@
                         </xsl:for-each>
                     </ul>
                 </div>
-                <ul class="atom-holdings">Holdings:
-                    <xsl:for-each select="//v1:copy">
-                        <li class="atom-available">
-                            <xsl:value-of select="v1:status"/><xsl:text> </xsl:text>
-                            Period:
-                            <xsl:value-of select="v1:location"/>
-                        </li>
+                <div class="atom-holdings">Holdings:
+                    <ul class="atom-list">
+                        <xsl:for-each select="//v1:copy">
+                            <li class="atom-available">
+                                <xsl:value-of select="v1:location"/><xsl:text> </xsl:text>
+                                (<xsl:value-of select="v1:status"/>)
+                            </li>
 
-                    </xsl:for-each>
-                </ul>
+                        </xsl:for-each>
+                    </ul>
+                </div>
             </div>
             <br/>
         </xsl:for-each>
