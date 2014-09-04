@@ -41,10 +41,10 @@
                 </div>
                 <div class="atom-holdings">Holdings:
                     <ul class="atom-list">
-                        <xsl:for-each select="//v1:copy">
+                        <xsl:for-each select="v1:holdings/v1:volumes/v1:volume/v1:copies">
                             <li class="atom-available">
-                                <xsl:value-of select="v1:location"/><xsl:text> </xsl:text>
-                                (<xsl:value-of select="v1:status"/>)
+                                <xsl:value-of select="v1:copy/v1:location"/><xsl:text> </xsl:text>
+                                (<xsl:value-of select="v1:copy/v1:status"/>)
                             </li>
 
                         </xsl:for-each>
