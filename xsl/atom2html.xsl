@@ -3,15 +3,13 @@
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:atom="http://www.w3.org/2005/Atom"
         xmlns:v1="http://open-ils.org/spec/holdings/v1"
-        exclude-result-prefixes="atom"
+        exclude-result-prefixes="atom v1"
         >
-    <xsl:output encoding="utf-8" indent="yes" method="xml"/>
+    <xsl:output encoding="utf-8" indent="yes" method="html"/>
     <xsl:variable name="opac_link"
                   select="/atom:feed/atom:entry/atom:link[@rel='opac']"/>
     <xsl:template match="/">
-        <div class="upei-roblib-reserves">
             <xsl:apply-templates select="atom:feed/atom:entry"/>
-        </div>
     </xsl:template>
 
     <xsl:template match="atom:entry">
